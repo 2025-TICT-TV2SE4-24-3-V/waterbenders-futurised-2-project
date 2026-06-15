@@ -156,7 +156,8 @@ RTAB-Map with ICP odometry successfully produced 3D maps of the simulated enviro
 
 # Setup
 ## Installation
-1. Follow the setup in the [lidarSensorOmgeving README](../lidarSensorOmgeving/ReadME.md) first.
+1. Setup the container by following the steps in [setup](../../../setup/ROS2/README.md) to **update the container** and **add the necessary repositories** . You may also follow all the steps in that readme so you do not miss any setups.
+
 2. Install RTAB-Map for ROS2 Jazzy:
 ```bash
 source /opt/ros/jazzy/setup.bash
@@ -203,7 +204,7 @@ ros2 launch rtabmap_gazebo.launch.py db_name:=nameYouWishToGiveTheDbFile.db
 There are two ways you can drive the robot in this protoype since pathfinding has not been implemented yet for auto drive.
 
 ## teleop_twist_keyboard
-The first way is by using `teleop_twist_keyboard` given that you have followed the installation steps in [](../../../setup/ROS2/README.md)
+The first way is by using `teleop_twist_keyboard` given that you have followed the installation steps in [ROS2/README.md](../../../setup/ROS2/README.md)
 ```bash
 cd /workspace/prototypes/3D-Lidar-Mapping-RTAB/
 source /opt/ros/jazzy/setup.bash

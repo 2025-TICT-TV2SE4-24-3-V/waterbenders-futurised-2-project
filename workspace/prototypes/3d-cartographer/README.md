@@ -190,9 +190,11 @@ After multiple tweaks and testing based on little and poor documentation, the ch
 
 # Setup
 ## Installation
-1. Install necessary packages after following the [setup](../lidarSensorOmgeving/ReadME.md) in the `lidarSensorOmgeving` folder 
+1. Setup the container by following the steps in [setup](../../../setup/ROS2/README.md) to **update the container** and **add the necessary repositories** . You may also follow all the steps in that readme so you do not miss any setups. 
+
+2. Install the necessary packages by running:
 ```bash
-apt update && apt install python3-colcon-common-extensions python3-rosdep ros-jazzy-ros-gz ros-jazzy-cartographer ros-jazzy-cartographer-ros ros-jazzy-slam-toolbox ros-jazzy-cartographer-rviz -y
+apt update && apt install  python3-rosdep  ros-jazzy-cartographer ros-jazzy-cartographer-ros  ros-jazzy-cartographer-rviz -y
 ```
 
 
