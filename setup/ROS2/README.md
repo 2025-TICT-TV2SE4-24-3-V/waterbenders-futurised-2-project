@@ -22,7 +22,7 @@ Below is a guide for installing ROS2, slam and using the right packages with Col
     - [my\_package not found](#my_package-not-found)
 
 # Installing ROS2 and Slam
-Run the Gazebo Docker container with (or use a [`.ps1`](../docker/setup/container-start/example-ps1-file.txt) file):
+Run the Gazebo Docker container with (or use a [`.ps1`](../../docker/setup/container-start/example-ps1-file.txt) file):
 ```bash
 docker run -it <image> bash
 ```
@@ -86,7 +86,7 @@ Navigate to `/workspace/models/ros/packages/` and use the below command to creat
 ros2 pkg create --build-type ament_python --node-name main <package_name>
 ```
 
-This will generate a basic package **template**, which one can use to develop custom Colcon packages for ROS2. You can now edit `my_package/my_package/main.py` to subscribe/publish to a topic and add custom logic. See [path_finding/main.py](../workspace\prototypes\path-finding-demo\ros\packages\path_planning\path_planning\main.py) for an example of the code structure.
+This will generate a basic package **template**, which one can use to develop custom Colcon packages for ROS2. You can now edit `my_package/my_package/main.py` to subscribe/publish to a topic and add custom logic. See [path_finding/main.py](../../workspace/prototypes/path-finding-demo/ros/packages/path_planning/path_planning/main.py) for an example of the code structure.
 
 ### Build the package
 After that build the package using (inside `/workspace/models`):
@@ -95,7 +95,7 @@ colcon build
 ```
 
 ### Add to Python script
-And add it to the [`simulation.launch.py`](../workspace/models/simulation.launch.py) file, like this:
+And add it to the [`simulation.launch.py`](../../workspace/models/simulation.launch.py) file, like this:
 ```python
     my_package = Node(
         package='my_package',   # change name of package you have
