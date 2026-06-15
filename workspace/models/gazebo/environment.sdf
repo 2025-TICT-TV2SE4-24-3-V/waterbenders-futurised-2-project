@@ -56,7 +56,10 @@
     <plugin filename="gz-sim-logicalaudiosensorplugin-system" name="gz::sim::systems::LogicalAudioSensorPlugin">
     </plugin>
         
-
+    <!-- AIR PRESSURE SENSOR -->
+    <plugin filename="gz-sim-air-pressure-system" name="gz::sim::systems::AirPressure">
+    </plugin>
+    
 
     <light type="directional" name="sun">
       <cast_shadows>false</cast_shadows>

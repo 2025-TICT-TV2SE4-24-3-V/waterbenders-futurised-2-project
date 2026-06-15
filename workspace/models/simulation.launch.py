@@ -204,6 +204,13 @@ def generate_launch_description():
         name='fire_detection_node',
         output='screen',
     )
+
+    explosion_detection = Node(
+        package='explosion_detection',
+        executable='main',
+        name='explosion_detection_node',
+        output='screen',
+    )
     
     rviz_config = os.path.join(WORKSPACE_DIR, 'rtabmap_mapping.rviz')
 
@@ -238,5 +245,6 @@ def generate_launch_description():
         audio_bridge_node,
         rviz_node,
         object_detection,
-        fire_detection
+        fire_detection,
+        explosion_detection
     ])

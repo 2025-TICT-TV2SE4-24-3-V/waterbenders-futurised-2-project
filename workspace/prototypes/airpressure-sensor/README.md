@@ -54,19 +54,19 @@ If the pressure rises above **102000 Pa**, the system immediately displays a war
 
 ### How to monitor Air Pressure Data
 
-First make sure a virtual environment is created by:
+First you have to make sure a virtual environment is created by:
 
 ```
 python3 -m venv /workspace/venv --system-site-packages
 ```
 
-Activate the venv with:
+You activate the venv with:
 
 ```
 source /workspace/venv/bin/activate
 ```
 
-To visualize the data, this will need to be run firstly in the Gazebo environment: <br>
+To visualize the data we will first run the Gazebo environment: <br>
 
 **Terminal 1:**
 
@@ -75,7 +75,7 @@ cd models/gazebo
 gz sim airpressure_plugin.sdf
 ```
 
-Then run the Python Processing Node: <br>
+Then we will run the Python Processing Node: <br>
 
 **Terminal 2:**
 

@@ -24,7 +24,7 @@ Futurised
 - **Django Manders:** Software Developer <br>
   - worked on: Global structure of Pathfinding, Camera
 - **Freya van den Berg:** Software Developer <br>
-  - worked on: Airpressure sensor
+  - worked on: Airpressure sensor, Explosion detection, Object detection
 - **Maud Waasdorp:** Software Developer <br>
   - worked on: Object detection, Thermal camera, Camera, Fire detection, Human detection
 - **Radeiaan Nandoe:** Technical Lead <br>
