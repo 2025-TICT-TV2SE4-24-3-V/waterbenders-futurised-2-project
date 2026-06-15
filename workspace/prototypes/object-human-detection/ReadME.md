@@ -1,6 +1,6 @@
 # Hybrid Detection Pipeline
 *10/06/2026*<br>
-*Maud Waasdorp*
+*Maud Waasdorp*<br>
 *Radeiaan Nandoe*
 
 # Table of Contents

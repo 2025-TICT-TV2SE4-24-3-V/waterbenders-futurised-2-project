@@ -1,6 +1,6 @@
 # Omgeving met Obstakels
 *15/06/2026*<br>
-*Radeiaan Nandoe*
+*Radeiaan Nandoe*<br>
 *Django Manders*
 
 This prototype is the first realistic simulated room with obstacles. The goal was to simulate a room for the robot to be able to navigate through.

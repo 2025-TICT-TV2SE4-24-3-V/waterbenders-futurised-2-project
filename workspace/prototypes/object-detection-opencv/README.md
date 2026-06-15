@@ -1,7 +1,7 @@
 # Object Detection
 
 *09/06/2026*<br>
-*Maud Waasdorp*
+*Maud Waasdorp*<br>
 *Radeiaan Nandoe*
 
 # Table of Contents
