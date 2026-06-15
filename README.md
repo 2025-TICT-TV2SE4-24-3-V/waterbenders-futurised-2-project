@@ -16,3 +16,6 @@ Simulatie van blus robot Flip met toevoeging van autonome kenmerken, zoals path-
 - Maud Waasdorp
 - Radeiaan Nandoe
 - Sarah Gbagi
+
+<!-- # Todo:
+- Flip foto -->
