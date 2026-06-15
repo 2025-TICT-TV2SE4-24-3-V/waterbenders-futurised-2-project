@@ -17,17 +17,19 @@ Futurised
   - [Software](#software)
 - [Futurised](#futurised)
 - [Instructions](#instructions)
+  - [Step-by-step](#step-by-step)
+  - [Other useful links](#other-useful-links)
 
 # Project authors
-- Django Manders: Software Developer <br>
+- **Django Manders:** Software Developer <br>
   - worked on: Global structure of Pathfinding, Camera
-- Freya van den Berg: Software Developer <br>
-  - worked on: Airpressure senor
-- Maud Waasdorp: Software Developer <br>
-  - worked on: Object detection, Thermal camera, Fire detection, Human detection
-- Radeiaan Nandoe: Technical Lead <br>
+- **Freya van den Berg:** Software Developer <br>
+  - worked on: Airpressure sensor
+- **Maud Waasdorp:** Software Developer <br>
+  - worked on: Object detection, Thermal camera, Camera, Fire detection, Human detection
+- **Radeiaan Nandoe:** Technical Lead <br>
   - worked on: LiDAR implentation, 2D and 3D mapping, Object detection, Human detection
-- Sarah Gbagi: Scrum Master <br>
+- **Sarah Gbagi:** Scrum Master <br>
   - worked on: Logical audio sensor, Pathfinding Dijkstra Algorithm
 
 All of the authors have worked on the structure and documentation of this Repository.
