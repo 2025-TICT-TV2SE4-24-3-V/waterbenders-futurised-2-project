@@ -22,7 +22,7 @@
 
 
 # Context
-This is the folder used prior to [3d-cartographer](../3d-cartographer/) to test cartographer's 2D-mapping so we could evaluate Cartographer's mapping functionality and performance which would be used to determine if we continue to 3D-mapping using cartographer.
+This is the folder used prior to [3d-cartographer](../3d-cartographer/) to test cartographer's 2D-mapping so Cartographer's mapping functionality and performance could be evaluated which was then used to determine if cartographer would still be used for 3D-mapping.
 
 # Structure
 ```md
@@ -51,7 +51,7 @@ This is the folder used prior to [3d-cartographer](../3d-cartographer/) to test 
 
 
 # Reasoning
-After achieving partial success with [RTAB-mapping](../3D-Lidar-Mapping-RTAB/) ( please visit RTAB-mapping's [ReadME.md](../3D-Lidar-Mapping-RTAB/ReadME.md) for more info) and reaching a few blockages shortly after that Django and I brainstormed about which alternative should be used. After googling `ros2 mapping algorithms` and coming across [8.ROS2_Cartographer mapping algorithm](https://www.yahboom.net/public/upload/upload-html/1699598898/8.ROS2_Cartographer%20mapping%20algorithm.html) we decided that Cartographer should be used since it can be implemented for both 2D and 3D-mapping while taking the real hardware implementations of FLIP into account. Besides that we already had a Lidar and cameras implemented in our robot model and those were mentioned in the documents.
+After achieving partial success with [RTAB-mapping](../3D-Lidar-Mapping-RTAB/) ( please visit RTAB-mapping's [ReadME.md](../3D-Lidar-Mapping-RTAB/ReadME.md) for more info) and reaching a few blockages shortly after that Django and I brainstormed about which alternative should be used. After googling `ros2 mapping algorithms` and coming across [8.ROS2_Cartographer mapping algorithm](https://www.yahboom.net/public/upload/upload-html/1699598898/8.ROS2_Cartographer%20mapping%20algorithm.html) the decision was made that Cartographer should be used since it can be implemented for both 2D and 3D-mapping while taking the real hardware implementations of FLIP into account.
 
 
 # Implementation
@@ -91,15 +91,18 @@ In [2dCartographer.launch.py](./2dCartographer.launch.py) four nodes are launche
 
 
 ## Conclusion
-After multiple tweaks and testing based on the found [sources](#sources) we managed to get Cartographer's 2D-mapping working, producing a live occupancy grid map of the simulated environment.
+After multiple tweaks and testing based on the found [sources](#sources) Cartographer's 2D-mapping was up and running, producing a live occupancy grid map of the simulated environment.
 
 
 
 # Setup
 ## Installation
-1. Install necessary packages after following the [setup](../lidarSensorOmgeving/ReadME.md) in the `lidarSensorOmgeving` folder 
+1. Setup the container by following the steps in [setup](../../../setup/ROS2/README.md) to **update the container** and **add the necessary repositories** . You may also follow all the steps in that readme so you do not miss any setups.
+
+2. Install the necessary packages by running:
 ```bash
-apt update && apt install python3-colcon-common-extensions python3-rosdep ros-jazzy-ros-gz ros-jazzy-cartographer ros-jazzy-cartographer-ros ros-jazzy-slam-toolbox ros-jazzy-cartographer-rviz -y
+```bash
+apt update && apt install  python3-rosdep  ros-jazzy-cartographer ros-jazzy-cartographer-ros  ros-jazzy-cartographer-rviz -y
 ```
 
 

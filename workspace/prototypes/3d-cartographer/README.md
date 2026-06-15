@@ -51,11 +51,11 @@ This folder builds upon [2d-cartographer-demo](../2d-cartographer-demo/). Since 
 
 
 # Reasoning
-After achieving partial success with [RTAB-mapping](../3D-Lidar-Mapping-RTAB/) ( please visit RTAB-mapping's [ReadME.md](../3D-Lidar-Mapping-RTAB/ReadME.md) for more info) and reaching a few blockages shortly after that Django and I brainstormed about which alternative should be used. After googling `ros2 mapping algorithms` and coming across [8.ROS2_Cartographer mapping algorithm](https://www.yahboom.net/public/upload/upload-html/1699598898/8.ROS2_Cartographer%20mapping%20algorithm.html) we decided that Cartographer should be used since it can be implemented for both 2D and 3D-mapping while taking the real hardware implementations of FLIP into account. Besides that we already had a Lidar and cameras implemented in our robot model and those were mentioned in the documents.
+After achieving partial success with [RTAB-mapping](../3D-Lidar-Mapping-RTAB/) ( please visit RTAB-mapping's [ReadME.md](../3D-Lidar-Mapping-RTAB/ReadME.md) for more info) and reaching a few blockages shortly after that Django and I brainstormed about which alternative should be used. After googling `ros2 mapping algorithms` and coming across [8.ROS2_Cartographer mapping algorithm](https://www.yahboom.net/public/upload/upload-html/1699598898/8.ROS2_Cartographer%20mapping%20algorithm.html) the decision was made that Cartographer should be used since it can be implemented for both 2D and 3D-mapping while taking the real hardware implementations of FLIP into account.
 
 
 # Implementation
-Even though we were successful in [2d-cartographer-demo](../2d-cartographer-demo/) with generating a 2D map of the simulated environment, producing a 3D map using Cartographer proved difficult. The reason for this conclusion was because there was apparently also an IMU sensor necessary which went against keeping the implementation realistic (even though we did try it for testing functionality of Cartographer's 3D-mapping) and also mainly because even though there was documentation on 2D-mapping using Cartographer, there was very little documentation on how to implement 3D-mapping. So based on the little documentation found, we changed what we thought was necessary such as:
+Even though being successful in [2d-cartographer-demo](../2d-cartographer-demo/) with generating a 2D map of the simulated environment, producing a 3D map using Cartographer proved difficult. The reason for this conclusion was because there was apparently also an IMU sensor necessary which went against keeping the implementation realistic (even though it was implemented to test and verify the functionality of Cartographer's 3D-mapping) and also mainly because even though there was documentation on 2D-mapping using Cartographer, there was very little documentation on how to implement 3D-mapping. So based on the little documentation found, changes were made to the following accordingly:
 
 ## 1. Vertical scan code block
 In [flip/model.sdf](./flip/model.sdf) the following code block was added to the `gpu_lidar` sensor as vertical scans are required for 3D scanning:
@@ -190,9 +190,11 @@ After multiple tweaks and testing based on little and poor documentation, the ch
 
 # Setup
 ## Installation
-1. Install necessary packages after following the [setup](../lidarSensorOmgeving/ReadME.md) in the `lidarSensorOmgeving` folder 
+1. Setup the container by following the steps in [setup](../../../setup/ROS2/README.md) to **update the container** and **add the necessary repositories** . You may also follow all the steps in that readme so you do not miss any setups. 
+
+2. Install the necessary packages by running:
 ```bash
-apt update && apt install python3-colcon-common-extensions python3-rosdep ros-jazzy-ros-gz ros-jazzy-cartographer ros-jazzy-cartographer-ros ros-jazzy-slam-toolbox ros-jazzy-cartographer-rviz -y
+apt update && apt install  python3-rosdep  ros-jazzy-cartographer ros-jazzy-cartographer-ros  ros-jazzy-cartographer-rviz -y
 ```
 
 

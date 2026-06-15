@@ -54,7 +54,7 @@ http://packages.ros.org/ros2/ubuntu noble main" \
 ###  Installing required software
 
 ```bash
-apt update && apt install -y ros-jazzy-desktop ros-jazzy-ros-gz ros-jazzy-ros-gz-bridge ros-jazzy-ros-gz-sim ros-jazzy-slam-toolbox ros-jazzy-teleop-twist-keyboard ros-jazzy-rviz2 ros-jazzy-nav2-map-server python3-colcon-common-extensions ros-jazzy-nav2-costmap-2d ros-jazzy-rtabmap ros-jazzy-rtabmap-launch
+apt update && apt install -y python3-rosdep ros-jazzy-cartographer ros-jazzy-cartographer-ros ros-jazzy-desktop ros-jazzy-ros-gz ros-jazzy-ros-gz-bridge ros-jazzy-ros-gz-sim ros-jazzy-slam-toolbox ros-jazzy-teleop-twist-keyboard ros-jazzy-rviz2 ros-jazzy-nav2-map-server python3-colcon-common-extensions ros-jazzy-nav2-costmap-2d ros-jazzy-rtabmap ros-jazzy-rtabmap-launch ros-jazzy-cartographer-rviz ros-jazzy-rtabmap-ros ros-jazzy-octomap-server
 ```
 
 ###  Install additional optional tools

@@ -15,7 +15,7 @@
 This directory contains the custom audio integration pipeline for the robotic system. It bridges the gap between Gazebo's text-based sound detection topic and ROS 2 Jazzy, transforming raw data streams into visual feedback in RViz2.
 
 ### Reasoning
-The simple reason we have an audio sensor is **so the robot can detect sounds.** While cameras and LiDAR let the robot "see" what is in front of it, they cannot see through walls or around dark corners. Adding a microphone gives the robot "hearing," which lets it detect important things it might otherwise miss. Turning these sounds into floating text inside RViz makes it easy to see exactly what the robot is hearing instantly.
+The simple reason for the implementation of the audio sensor is **so the robot can detect sounds.** While cameras and LiDAR let the robot "see" what is in front of it, they cannot see through walls or around dark corners. Adding a microphone gives the robot "hearing," which lets it detect important things it might otherwise miss. Turning these sounds into floating text inside RViz makes it easy to see exactly what the robot is hearing instantly.
 
 ### Implementation
 The script achieves:
@@ -49,14 +49,14 @@ You active the venv with:
 source /workspace/venv/bin/activate
 ```
 
-To visualize the data we will first run the Gazebo environment: <br>
+To visualize the data, first run the Gazebo environment: <br>
 **Terminal 1:**
 ```
 cd models/gazebo
 gz sim environment.sdf&
 ```
 
-Then we will do the Python Processing Node: <br>
+Then preform the Python Processing Node: <br>
 **Terminal 2:**
 ```
 cd models/scripts/logical-audio-sensor/
@@ -68,14 +68,14 @@ source /opt/ros/jazzy/setup.bash
 python3 audio.py
 ```
 
-At last, well set up the RViz2 Visualization: <br>
+At last, set up the RViz2 Visualization: <br>
 **Terminal 3:**
 ```
 source /opt/ros/jazzy/setup.bash
 ros2 run rviz2
 ```
 
-Here, we will add the Logical Audio Sensor topic to visualize the data.
+Here, add the Logical Audio Sensor topic to visualize the data.
 
 Within RViz you should chick on **add**, and then you should select **By topic**.
 The topic you should click on is named **/robot_audio_status**, then click on **marker**, and then finnally press Ok.

@@ -14,7 +14,7 @@ The altimeter sensor was **not** integrated into the final product.
 The reasoning behind this decision is that Flip (the robot) does not navigate across varying altitudes within the simulation. Because of this the altimeter would constantly return a value of 0.
 
 # Implementation
-Although it is not in the final product, we have already laid the groundwork for this sensor. The altimeter has been successfully implemented in the *altimeter_prototype.sdf* and the *altimeter_prototype.cc* file within this folder.
+Although it is not in the final product, there has already been laid groundwork for this sensor. The altimeter has been successfully implemented in the *altimeter_prototype.sdf* and the *altimeter_prototype.cc* file within this folder.
 
 To verify that the altimeter measures values correctly you can manually control the cube component equipped with the altimeter directly via the terminal.
 
