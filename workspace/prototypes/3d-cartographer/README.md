@@ -253,3 +253,4 @@ Oct 09, 2019 https://ouster.com/insights/blog/building-maps-using-google-cartogr
 - cartographer_ros - bochen87 https://github.com/cartographer-project/cartographer_ros
 - The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLII-2/W3, 2017 3D Virtual Reconstruction and Visualization of Complex Architectures, 1–3 March 2017, Nafplio, Greece https://isprs-archives.copernicus.org/articles/XLII-2-W3/543/2017/isprs-archives-XLII-2-W3-543-2017.pdf
 - Setting Up Cartographer with ROS2 and Gazebo for SLAM Using a LIDAR Sensor Plugin Without Odometry, Nex-dynamics robot, Jun 29, 2024 https://www.youtube.com/watch?v=CeaW8WG7Z8g
+- [3D-mapping Research](../../../docs/onderzoek/3D-mapping/links.md)

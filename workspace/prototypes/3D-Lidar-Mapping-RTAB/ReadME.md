@@ -318,3 +318,4 @@ Among all the options evaluated, RTAB-Map is the recommended choice for 3D LiDAR
 - ROS.org https://wiki.ros.org/rtabmap_ros
 - rtabmap_odom https://wiki.ros.org/rtabmap_odom#icp_odometry
 - RTAB rviz https://wiki.ros.org/rtabmap_viz#rtabmap_viz-1
+- [3D-mapping Research](../../../docs/onderzoek/3D-mapping/links.md)

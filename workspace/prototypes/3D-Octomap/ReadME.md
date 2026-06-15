@@ -199,3 +199,4 @@ OctoMap is a good tool for static 3D occupancy mapping when the robot's pose is 
 - Google AI mode for launch file https://share.google/aimode/8xkCYUWeVNt3yZhrn
 - octomap_server by ROS.org https://wiki.ros.org/octomap_server#Parameters
 - ChatGPT — Octomap https://chatgpt.com/share/6a01811d-fc7c-83eb-bdb2-38881a21a26c
+- [3D-mapping Research](../../../docs/onderzoek/3D-mapping/links.md)
