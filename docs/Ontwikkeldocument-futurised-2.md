@@ -315,23 +315,23 @@ Stakeholders:
 
 ## Use-case diagram
 
-![use-case diagram img](/images/ontwikkel_document_UC_diagram.png)
+![use-case diagram img](../docs/images/ontwikkel_document_UC_diagram.png)
 
 ## Activity Diagrammen
 
-![activity jdiagram img](/images/ontwikkel_document_AC_UC01.png) \
+![activity jdiagram img](../docs/images/ontwikkel_document_AC_UC01.png) \
 *UC01 - Autonoom Manouvreren*
 
-![activity diagram img](/images/ontwikkel_document_AC_UC02.png) \
+![activity diagram img](../docs/images/ontwikkel_document_AC_UC02.png) \
 *UC02 - Objecten Decteren*
 
-![activity diagram img](/images/ontwikkel_document_AC_UC03.png) \
+![activity diagram img](../docs/images/ontwikkel_document_AC_UC03.png) \
 *UC03 - Plattegrond Generegen*
 
-![activity diagram img](/images/ontwikkel_document_AC_UC04.png) \
+![activity diagram img](../docs/images/ontwikkel_document_AC_UC04.png) \
 *UC04 - Handmatige Besturing*
 
-![activity diagram img](/images/ontwikkel_document_AC_UC05.png) \
+![activity diagram img](../docs/images/ontwikkel_document_AC_UC05.png) \
 *UC05 - Data Opslaan*
 
 
