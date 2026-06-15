@@ -85,3 +85,4 @@ These are the folders and their contents:
 - [docker](/docker): How-To setup and use Docker and setup the environment to work in *(required to run the simulation)*.
 - [docs](/docs): Documentation like specifications on FLIP, research documents and the development document.
 - [setup](/setup): How-To setup and use different software like ROS2, Colcon, RViz and running Python files *(required to run the simulation)*.
+- [workspace](/workspace): The main folder where everything is kept to be able to run the **Digital Twin** accordingly and also has all the prototypes version. This is where future teams will change code, the environment or add new scripts.
