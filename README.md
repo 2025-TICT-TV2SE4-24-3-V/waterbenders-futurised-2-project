@@ -104,7 +104,7 @@ Since the project is quite large and the setup isn't always straighforward, belo
 - **3.** [Running the simulation](/workspace): Guide on how to run the full simulation.
   - **3.1.** [Visualization with RViz](/setup/RViz-visualisation/README.md)
   - **3.2.** [Running Python scripts](/setup/running-scripts/README.md)
-  - **3.3.** [Running the full simulation](/workspace/models/README.md#7-launch-the-simulation)
+  - **3.3.** [Running the full simulation](/workspace/models/README.md#to-run-the-complete-simulation)
 
 
 ## Other useful links
