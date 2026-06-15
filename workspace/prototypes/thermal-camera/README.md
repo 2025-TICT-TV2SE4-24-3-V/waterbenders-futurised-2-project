@@ -16,7 +16,7 @@
     - [4. Create legend](#4-create-legend)
   - [3. Rviz](#3-rviz)
 - [Choices](#choices)
-  - [Conclusion](#conclusion)
+- [Conclusion](#conclusion)
 - [Setup](#setup)
   - [4-Terminal setup](#4-terminal-setup)
   - [What to do in Rviz](#what-to-do-in-rviz)
@@ -154,7 +154,7 @@ In order to fix this, the next step was figuring out how `<temperature>` could a
 ```
 By putting `<temperature>` inside `<link>` the temperature seemed to be configured in to the world file accordingly. If this is moved to somewhere like inside `<visual>`, the temperature will not be seen and could give some Gazebo errors. 
 
-## Conclusion
+# Conclusion
 Using the most improved version of this code, the data of the thermal camera is exact and clearly visible to the human eye. Also with Rviz and ROS2 implementation, the heatmap image is visible while also seeing the output of other sensors. 
 
 
