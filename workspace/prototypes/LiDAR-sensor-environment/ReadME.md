@@ -31,7 +31,7 @@ This prototype holds two firsts in the project:
 - It was the **first LiDAR prototype** developed for FLIP, using SLAM Toolbox to generate a 2D occupancy map of a simulated environment.
 - It was the **first prototype to use modular SDF files** for the environment splitting the world, robot&sensors, and obstacles into separate reusable files rather than one monolithic `.sdf`. This allowed for shapes and obstacles to be simply included. The sensors were still in the main .sdf file which is in this case the `lidarRoomScan.sdf`
 
-ROS2 was chosen because it is widely used for processing and managing simulation data, making it the natural fit for this prototype. RViz was selected as the visualisation tool based on findings during [initial research](../../../documenten/onderzoek/ROS2/bridge.md), as it integrates well with ROS2 and supports real-time display of LiDAR and map data.
+ROS2 was chosen because it is widely used for processing and managing simulation data, making it the natural fit for this prototype. RViz was selected as the visualisation tool based on findings during [initial research](../../../docs/onderzoek/ROS2/bridge.md), as it integrates well with ROS2 and supports real-time display of LiDAR and map data.
 
 This prototype builds on the earlier `workspace/prototypes/omgeving-met-obstakels` by introducing a more realistic simulated environment with obstacles. The goal was to test how well the robot and its sensors handle a populated environment, rather than an empty room.
 
@@ -315,7 +315,7 @@ Permanent sourcing (**not recommended**) so you don't need to type `source /opt/
 echo 'source /opt/ros/jazzy/setup.bash' >> ~/.bashrc
 source ~/.bashrc
 ```
-
+This will probably cause errors in your container since sourcing is prioritized at startup which can cause Gazebo launches to fail and python scripts not to be run.
 
 
 # Advice
