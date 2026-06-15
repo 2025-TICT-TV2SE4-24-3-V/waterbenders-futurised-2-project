@@ -114,3 +114,11 @@ Since the project is quite large and the setup isn't always straighforward, belo
 
 - [Documentation](/docs): Files like the specifications of FLIP, research documents, development documents and proptypes. 
 - [Protopytes](/workspace/prototypes/): A collection of prototypes that were used in the development of the **Digital Twin** (very useful for future students that might build on this projects code)
+
+# Conclusion and Recommendations
+
+One of the main challenges encountered during the project was the integration of all prototypes into a single simulation environment. While most components functioned correctly on their own, combining all systems into one complete Digital Twin introduced performance issues and increased complexity within the simulation environment. Due to time constraints and the complexity of integration, a fully optimized combined implementation could not be completed within the project period.
+
+For future project teams, we strongly recommend integrating completed prototypes into the main project as early as possible rather than waiting until the end of development. Continuous integration allows performance bottlenecks, compatibility issues and resource limitations to be identified and addressed earlier in the development process. This approach will make it easier to monitor system performance, maintain stability and achieve a fully integrated Digital Twin.
+
+We hope this repository, documentation and collection of prototypes provide a strong foundation for future development and further improvements of the FLIP robot.
