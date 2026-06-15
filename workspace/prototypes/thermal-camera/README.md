@@ -26,7 +26,7 @@
 # What's in this folder
 In this folder is the whole process of implementing **YOLO** person/victim detection inside Gazebo using **OpenCV and Ultralytics YOLO models**. The Python script subscribes directly to a Gazebo camera topic and processes incoming images in real-time using AI-based object detection
 
-In the [test](/test) folder is the first working prototype (more on that below), in the [thermal-camera-rviz](/thermal-camera-rviz) folder is where there was improved on the prototype to fit correctly with the client's needs..
+In the [test](./test) folder is the first working prototype (more on that below), in the [thermal-camera-rviz](./test-thermal-camera-rviz) folder is where there was improved on the prototype to fit correctly with the client's needs..
 
 The final result is a detection pipeline capable of:
 
@@ -50,7 +50,7 @@ The decision to use this sensor is to be able to detect hot and even burning obj
 In order to be able to let FLIP detect different temperatures of the area it needs to explore, the thermal camera must translate it's raw data into something useful for the human eye. There were a few steps in implementing this sensor and it's end result:
 
 ## 1. Testing 
-In the first fase it was important to test the thermal camera inside a prototype environment to be able to see the output. Inside the [test](test/Tcamera.py) folder there is a first draft of Python code which creates an image using OpenCV to see the grayscale. This image is refreshed constantly for real-time data insights. What happens in this code:
+In the first fase it was important to test the thermal camera inside a prototype environment to be able to see the output. Inside the [test](./test/Tcamera.py) folder there is a first draft of Python code which creates an image using OpenCV to see the grayscale. This image is refreshed constantly for real-time data insights. What happens in this code:
 - It converts the raw data into a `numpy array`
 - Calculates the temperature
 - Prints the centre pixel temperature inside terminal
@@ -59,7 +59,7 @@ In the first fase it was important to test the thermal camera inside a prototype
 - Subscribes to the thermal camera topic
 
 ## 2. Colormap
-After showing this first prototype to the client, the next steps could be taken in mind with the given feedback. Adding a colormap helps with visibility for easy reading and gathering information. In order to do this, the greyscale image from the first step must be translated to a heatmap image. In [thc-rviz.py](thermal-camera-rviz/thc-rviz.py) this heatmap was implemented. 
+After showing this first prototype to the client, the next steps could be taken in mind with the given feedback. Adding a colormap helps with visibility for easy reading and gathering information. In order to do this, the greyscale image from the first step must be translated to a heatmap image. In [thc-rviz.py](./test-thermal-camera-rviz/thc-rviz.py) this heatmap was implemented. 
 
 Processing the thermal-to-heatmap conversion happens in ObjectTemperature node, which subscribes to `/front/image`, `/FLIP/thermal_camera`, and publishes processed outputs on `/thermal/heatmap_image`. The pipeline consists of several steps designed for clarity when presenting to end user teams who may not work directly with raw sensor payloads:
 
@@ -93,7 +93,7 @@ heatmap_color = cv2.applyColorMap(heatmap_gray, cv2.COLORMAP_TURBO)
 heatmap_resized = cv2.resize(heatmap_color, (self.rgb.width, self.rgb.height))
 ```
 ### 4. Create legend
-In order to see the actual temperatures of objects and not just a gradient of the grayscale, a legend is created where the temperature is corresponding to the correct color, check out this [video](/thermal-camera-rviz/TEST2-ThC-werkt.mp4). 
+In order to see the actual temperatures of objects and not just a gradient of the grayscale, a legend is created where the temperature is corresponding to the correct color, check out this [video](./test-thermal-camera-rviz/TEST2-ThC-werkt.mp4). 
 ```python
 def create_legend(self, height=300, width=60):
     legend = np.zeros((height, width, 3), dtype=np.uint8)
@@ -108,7 +108,7 @@ def create_legend(self, height=300, width=60):
 ```
 
 ## 3. Rviz
-In order to visualise all the data from all the different sensors used in this project, Rviz and ROS2 will be used. ROS2 bridges between OpenCV and Rviz in order to correctly visualise the data in Rviz. This is also implemented in [thc-rviz.py](/thc-rviz.py). First it's important to subscribe to a topic and publish the created topic inside the Python code, this happens in the initialisation of `class ObjectTemperature(Node)`. In order to publish, `msg.header.frame_id` gets set to *“camera_frame”* which tells any viewer (like Rviz) how to place this image in world coördinate space so overlays line up correctly with FLIP and the Gazebo World.
+In order to visualise all the data from all the different sensors used in this project, Rviz and ROS2 will be used. ROS2 bridges between OpenCV and Rviz in order to correctly visualise the data in Rviz. This is also implemented in [thc-rviz.py](./thc-rviz.py). First it's important to subscribe to a topic and publish the created topic inside the Python code, this happens in the initialisation of `class ObjectTemperature(Node)`. In order to publish, `msg.header.frame_id` gets set to *“camera_frame”* which tells any viewer (like Rviz) how to place this image in world coördinate space so overlays line up correctly with FLIP and the Gazebo World.
 ```python
 msg = self.bridge.cv2_to_imgmsg(display, encoding='bgr8')
 msg.header.stamp = self.get_clock().now().to_msg()
@@ -116,7 +116,7 @@ msg.header.frame_id = "camera_frame"
 self.pub_heatmap.publish(msg)
 ```
 
-Check out this [video](/thermal-camera-rviz/TEST3-ThC-Rviz.mp4)
+Check out this [video](./test-thermal-camera-rviz/TEST3-ThC-Rviz.mp4)
 
 ## Conclusion
 Using the most improved version of this code, the data of the thermal camera is exact and clearly visible to the human eye. Also with Rviz and ROS2 implementation, the heatmap image is visible while also seeing the output of other sensors. 
@@ -124,9 +124,9 @@ Using the most improved version of this code, the data of the thermal camera is 
 
 # Setup
 In order to be able to run these files, there are a few steps that need to be taken in order for it to work correctly with Gazebo, ROS2 and Rviz (Using Gazebo — (Murilo’s) ROS2 Tutorial, z.d.).
-1. Create a Docker container -> [Docker container setup]()
-2. Install ROS2 -> [Installing ROS2](../../models/README.md)
-3. Create a venv inside the Docker container and install packages/libraries -> [venv setup](../../models/README.md)
+1. Create a Docker container -> [Docker container setup](../../../docker/setup/container-creation/README.md)
+2. Install ROS2 -> [Installing ROS2](../../../setup/ROS2/README.md)
+3. Create a venv inside the Docker container and install packages/libraries -> [venv setup](../../../docker/setup/container-venv/README.md)
 
 If this setup is complete and functioning, the next step is to actually run this script. Important is that it is neccesary to have **4 powershell terminals** open, because in every terminal something else must be ran. It's easy to open these terminals in VS Code, use the shortcut `Ctrl + Shift + ~` to open a terminal, use `Crtl + Shift + 5` to open a split terminal.
 
@@ -200,7 +200,7 @@ A module that was compiled using NumPy 1.x cannot be run in NumPy 2.4.6
 pip uninstall numpy
 pip install numpy==1.26.4
 ```
-Inside the `.ps1` file, everytime this runs it makes sure the correct version of Numpy is installed and *doesn't* update automatically. Make sure to check out the [`.ps1`](../../../setup/containerCreation/example-ps1-file.txt) and use it to start and enter the container.
+Inside the `.ps1` file, everytime this runs it makes sure the correct version of Numpy is installed and *doesn't* update automatically. Make sure to check out the [`.ps1`](../../../docker/setup/container-start/example-ps1-file.txt) and use it to start and enter the container.
 
 **ERROR: rclpy not found:**
 ```bash

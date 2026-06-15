@@ -366,7 +366,7 @@ Required Python packages:
 pip install ultralytics opencv-python numpy
 ```
 
-*Depending on the system, PyTorch may also need [GPU/CUDA](../../../setup/usingCuda/ReadME.md) support for better performance.*
+*Depending on the system, PyTorch may also need [GPU/CUDA](../../../docker/setup/using-cuda/ReadME.md) support for better performance.*
 
 ## 3-Terminal setup
 

@@ -44,8 +44,8 @@ This creates a single detection node capable of gathering information about both
 
 More detailed explanations of the individual detection systems can be found here:
 
-* **YOLO Human Detection** -> [YOLO README](../YOLO-HumanDetection/ReadME.md)
-* **OpenCV Object Detection** -> [Object Detection README](../objectHerkenningCV2/README.md)
+* **YOLO Human Detection** -> [YOLO README](../YOLO-human-detection/README.md)
+* **OpenCV Object Detection** -> [Object Detection README](../object-detection-opencv/README.md)
 
 The final result is a perception pipeline capable of:
 
@@ -255,9 +255,9 @@ Instead of running separate detection applications, the hybrid detector creates 
 
 In order to be able to run these files, there are a few steps that need to be taken in order for it to work correctly with Gazebo, ROS2 and Rviz.
 
-1. Create a Docker container -> [Docker container setup]()
-2. Install ROS2 -> [Installing ROS2](../../models/README.md)
-3. Create a venv inside the Docker container and install packages/libraries -> [venv setup](../../models/README.md)
+1. Create a Docker container -> [Docker container setup](../../../docker/setup/container-creation/README.md)
+2. Install ROS2 -> [Installing ROS2](../../../setup/ROS2/README.md)
+3. Create a venv inside the Docker container and install packages/libraries -> [venv setup](../../../docker/setup/container-venv/README.md)
 
 If this setup is complete and functioning, the next step is to actually run this script. Important is that it is necessary to have **3 powershell terminals** open, because in every terminal something else must be ran.
 
