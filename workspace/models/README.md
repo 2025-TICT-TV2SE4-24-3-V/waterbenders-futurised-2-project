@@ -261,7 +261,7 @@ Run:
 ./rungazebo.ps1
 ```
 
-*This starts the configured Gazebo/ROS2 container. See [here](../../setup/containerStart/README.md) for explanation of this file*
+*This starts the configured Gazebo/ROS2 container. See [here](../../docker/setup/container-start/README.md) for explanation of this file*
 
 ### 3. Navigate to the simulation folder
 Inside the container:
