@@ -116,7 +116,7 @@ Although a map was produced and visible in RViz, the prototype suffered from sev
 
 # Setup
 ## Installation
-1. Follow the setup guide in [lidarSensorOmgeving](../lidarSensorOmgeving/ReadME.md) first, then install OctoMap:
+1. Follow the setup guide in [lidarSensorOmgeving](../../../setup/ROS2/README.md) first to update the container and add the necessary repositories, then install OctoMap:
 ```bash
 source /opt/ros/jazzy/setup.bash
 apt update

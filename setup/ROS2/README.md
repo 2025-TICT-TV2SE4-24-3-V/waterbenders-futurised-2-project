@@ -22,7 +22,7 @@ Below is a guide for installing ROS2, slam and using the right packages with Col
     - [my\_package not found](#my_package-not-found)
 
 # Installing ROS2 and Slam
-Run the Gazebo Docker container with (or use a [`.ps1`](../../setup/containerCreation/example-ps1-file.txt) file):
+Run the Gazebo Docker container with (or use a [`.ps1`](../../docker/setup/container-start/example-ps1-file.txt) file):
 ```bash
 docker run -it <image> bash
 ```
@@ -54,7 +54,7 @@ http://packages.ros.org/ros2/ubuntu noble main" \
 ###  Installing required software
 
 ```bash
-apt update && apt install -y ros-jazzy-desktop ros-jazzy-ros-gz ros-jazzy-ros-gz-bridge ros-jazzy-ros-gz-sim ros-jazzy-slam-toolbox ros-jazzy-teleop-twist-keyboard ros-jazzy-rviz2 ros-jazzy-nav2-map-server python3-colcon-common-extensions ros-jazzy-nav2-costmap-2d ros-jazzy-rtabmap ros-jazzy-rtabmap-launch
+apt update && apt install -y python3-rosdep ros-jazzy-cartographer ros-jazzy-cartographer-ros ros-jazzy-desktop ros-jazzy-ros-gz ros-jazzy-ros-gz-bridge ros-jazzy-ros-gz-sim ros-jazzy-slam-toolbox ros-jazzy-teleop-twist-keyboard ros-jazzy-rviz2 ros-jazzy-nav2-map-server python3-colcon-common-extensions ros-jazzy-nav2-costmap-2d ros-jazzy-rtabmap ros-jazzy-rtabmap-launch ros-jazzy-cartographer-rviz ros-jazzy-rtabmap-ros ros-jazzy-octomap-server
 ```
 
 ###  Install additional optional tools
@@ -86,7 +86,7 @@ Navigate to `/workspace/models/ros/packages/` and use the below command to creat
 ros2 pkg create --build-type ament_python --node-name main <package_name>
 ```
 
-This will generate a basic package **template**, which one can use to develop custom Colcon packages for ROS2. You can now edit `my_package/my_package/main.py` to subscribe/publish to a topic and add custom logic. See [path_finding/main.py](/workspace/prototypes/path-finding-demo/path_planning/path_planning/main.py) for an example of the code structure.
+This will generate a basic package **template**, which one can use to develop custom Colcon packages for ROS2. You can now edit `my_package/my_package/main.py` to subscribe/publish to a topic and add custom logic. See [path_finding/main.py](../../workspace/prototypes/path-finding-demo/ros/packages/path_planning/path_planning/main.py) for an example of the code structure.
 
 ### Build the package
 After that build the package using (inside `/workspace/models`):
