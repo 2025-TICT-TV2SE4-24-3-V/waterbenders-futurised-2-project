@@ -26,7 +26,7 @@ rviz2
 # What to do in Rviz
 Now once RViz is running it's possible to visualise the data that is being published.
 
-![alt text](image.png)
+![alt text](../../docs/images/RViz_visualisation_image.png)
 
 **In RViz UI:**
 
@@ -37,6 +37,6 @@ Now once RViz is running it's possible to visualise the data that is being publi
 
 Do this for every topic needed to be visualized and/or shown. Below is an example image of one of the earlier prototypes with the LiDAR sensor and the thermal camera:
 
-![alt text](image-1.png)
+![alt text](../../docs/images/RViz_visualisation_image_1.png)
 
-![alt text](image-2.png)
+![alt text](../../docs/images/RViz_visualisation_image_2.png)
