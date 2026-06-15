@@ -70,6 +70,7 @@ This Digital Twin is made using the following software:
 - RViz
 - Colcon
 - Docker
+- Gazebo
 
 Please read the [navigation](#navigation) chapter below to learn how to navigate, read and use this repository accordingly.
 
