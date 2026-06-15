@@ -17,6 +17,7 @@
   - [4. Shape Classification](#4-shape-classification)
   - [5. Drawing \& Visualisation](#5-drawing--visualisation)
   - [6. Gazebo Integration](#6-gazebo-integration)
+- [Choices](#choices)
 - [Conclusion](#conclusion)
 - [Setup](#setup)
   - [3-Terminal setup](#3-terminal-setup)
@@ -311,6 +312,17 @@ while True:
 ```
 
 This allows real-time object recognition directly inside the Gazebo simulation.
+
+# Choices
+During this process there were two big ways to be able to detect objects: using **contours** and using **houghlines**. 
+
+The first test file was used with the contours method, finding the contours of objects with `cv2.findContours()`, yet a big problem while running this file with Gazebo, was the lighting. Because of the lighting and walls, the script would detect the walls as triangles. Or even not see a cube, but detect a triangle from its shadow. 
+
+These things had to be fixed so the next thing to test was using `cv2.HoughLines()`, but this method seemed to be even worse. It would not detect the shadows as much, but the `vertices` (corners) and outer edge lines of objects were barely visible. There were alot of gaps within the shapes, so the script could not use these lines as specificly to be able to detect shapes with it. So it was back to `cv2.findContours()`.
+
+In order to make sure the object detection wouldn't detect the walls, there was a way to distinguish te objects from eachother, using the RGB camera and colors. With this the `vertices` were more clear by reading each pixel color of an object and create a `mask`. This way it filters out low-saturation and low-brightness pixels (background noise). This also helped with not detecting shadows of objects. 
+
+Besides using `vertices`, `aspect_ratio` and `circularity`, with adding `solidity` and `extent` the objects could be filtered more. This helped with checking the robustness and the *actual* shape of an object like a cilinder. By making calculations with these variables it improved the quality of the object detection.
 
 # Conclusion
 

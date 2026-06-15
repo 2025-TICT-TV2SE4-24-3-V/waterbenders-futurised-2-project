@@ -15,6 +15,7 @@
     - [3. Colormap Rendering](#3-colormap-rendering)
     - [4. Create legend](#4-create-legend)
   - [3. Rviz](#3-rviz)
+- [Choices](#choices)
   - [Conclusion](#conclusion)
 - [Setup](#setup)
   - [4-Terminal setup](#4-terminal-setup)
@@ -117,6 +118,41 @@ self.pub_heatmap.publish(msg)
 ```
 
 Check out this [video](./test-thermal-camera-rviz/TEST3-ThC-Rviz.mp4)
+
+# Choices
+One of the main problems with this script was in which way to let the thermal camera collect data from different temperatures in objects and surroundings. There were many tests done as to how this would work accordingly, as to be seen in [implementation](#implementation). With the clients feedback the heatmap was introduces, but this had to be specified for the environment simulation. 
+
+At first with running these scripts, `emissive` was used as the 'main' way of reading temperature data, yet this was very troublesome. Imagine having to change `emissive` in every `model.sdf` and not knowing what temperature is assigned to an object. And even besides that, the position of the sun and strength of light in `room-v2.sdf` had to be regulated and calculated too.
+
+In order to fix this, the next step was figuring out how `<temperature>` could actually be implemented in the correct way and calculated back to celsius. Since .sdf files can be very picky, there was one way found that worked:
+```xml
+<?xml version="1.0" ?>
+<sdf version="1.10">
+    <model name="blueBox1x2x1">
+      <static>true</static>
+      <pose>3 -2 0.5 0 0 0</pose>
+      <link name="link">
+        <temperature>300.0</temperature>
+        <collision name="collision">
+          <geometry><box><size>1 2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1 2 1</size></box></geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+          <plugin
+            filename="gz-sim-thermal-system"
+            name="gz::sim::systems::Thermal">
+            <temperature>343.15</temperature>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+</sdf>
+```
+By putting `<temperature>` inside `<link>` the temperature seemed to be configured in to the world file accordingly. If this is moved to somewhere like inside `<visual>`, the temperature will not be seen and could give some Gazebo errors. 
 
 ## Conclusion
 Using the most improved version of this code, the data of the thermal camera is exact and clearly visible to the human eye. Also with Rviz and ROS2 implementation, the heatmap image is visible while also seeing the output of other sensors. 

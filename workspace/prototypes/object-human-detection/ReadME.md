@@ -19,7 +19,9 @@
     - [Image Resizing](#image-resizing)
     - [Result Reuse](#result-reuse)
   - [6. Visualisation](#6-visualisation)
-  - [Conclusion](#conclusion)
+- [Choices](#choices)
+- [Choices](#choices-1)
+- [Conclusion](#conclusion)
 - [Setup](#setup)
   - [3-Terminal setup](#3-terminal-setup)
   - [What to do in Rviz](#what-to-do-in-rviz)
@@ -245,7 +247,72 @@ cv2.imshow(
 
 *The same image is also published through ROS2 for visualisation inside Rviz.*
 
-## Conclusion
+# Choices
+To read the specific choices on either of these detectors, please check out their files ([object detection](../object-detection-opencv/README.md) and [human detection](../YOLO-human-detection/README.md).
+
+Important to know is that those files were combined inside this script. It is definite that the script is long, but shortening it in any way possible, it decreased the quality a massive amount. In order to make sure the object and human detection work accordingly, all the line of code in this script is **neccesary and very useful.**
+
+Besides that fact, in order for these scripts to run together, a function was added to make sure the object detection doesn't overwrite the human detection in `mask_out_boxes()`:
+```py
+def mask_out_boxes(
+    self,
+    img_bgr: np.ndarray,
+    boxes_xyxy: List[List[int]],
+    padding: int = 8,
+) -> np.ndarray:
+    """
+    Black out person boxes before colored-object segmentation.
+
+    This prevents colored clothing / textured person models from being
+    detected again as generic colored objects.
+    """
+    masked = img_bgr.copy()
+    img_h, img_w = masked.shape[:2]
+
+    for box in boxes_xyxy:
+        x1, y1, x2, y2 = clamp_box_xyxy(
+            box,
+            image_width=img_w,
+            image_height=img_h,
+            padding=padding,
+        )
+        masked[y1:y2, x1:x2] = (0, 0, 0)
+
+    return masked
+```
+
+Then also in `detect_objects()`:
+```py
+def detect_objects(
+    self,
+    img_bgr: np.ndarray,
+    ignore_boxes_xyxy: List[List[int]] | None = None,
+    ignore_box_padding: int = 8,
+) -> List[Dict[str, Any]]:
+    """
+    Main detection pipeline in single frame.
+    Returns a list of detected objects with color, shape, and position data.
+
+    NOTE: If ignore_boxes_xyxy is given, those boxes are blacked out first.
+    This is useful for ignoring YOLO-detected people.
+    """
+    if ignore_boxes_xyxy:
+        work_img = self.mask_out_boxes(
+            img_bgr,
+            ignore_boxes_xyxy,
+            padding=ignore_box_padding,
+        )
+    else:
+        work_img = img_bgr
+```
+Without this function the script will detect objects like 'Brown Box' by scanning a person's arm or body.
+
+# Choices
+This human detection script was implemented more at the end of the project, resulting in using an existing YOLO algorithm and intelligence instead of writing one. So in the future it might be worthwhile to write a script with a specific algoritm for this project. 
+
+By using YOLO's existing human detector, it was pretty simple to implement withing our object detection. Classifying COCO YOLO with `class = 0` it's only focused on detecting people. In the future it could also be possible to even detect other objects like a couch, cat or dog. But because of the deadline this wasn't possible for this team.
+
+# Conclusion
 
 This implementation successfully combines multiple perception systems into a single processing pipeline.
 
