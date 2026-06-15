@@ -25,7 +25,7 @@ Futurised
   - worked on: Airpressure senor
 - Maud Waasdorp: Software Developer <br>
   - worked on: Object detection, Thermal camera, Fire detection, Human detection
-- Radeiaan Nandoe Technical Lead <br>
+- Radeiaan Nandoe: Technical Lead <br>
   - worked on: LiDAR implentation, 2D and 3D mapping, Object detection, Human detection
 - Sarah Gbagi: Scrum Master <br>
   - worked on: Logical audio sensor, Pathfinding Dijkstra Algorithm
