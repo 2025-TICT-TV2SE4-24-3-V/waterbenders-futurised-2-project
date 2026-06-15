@@ -16,7 +16,7 @@ Futurised
   - [Other implementations](#other-implementations)
   - [Software](#software)
 - [Futurised](#futurised)
-- [Navigation](#navigation)
+- [Instructions](#instructions)
 
 # Project authors
 - Django Manders: Software Developer <br>
@@ -85,11 +85,29 @@ Check out the [Futurised Website](https://www.getfuturised.com/), also check out
 
 ![alt text](img/image.png)
 
-# Navigation
-Since this project had alot of prototypes and some particular usage for it to work accordingly, there are some documentation and guides to follow.
+# Instructions
 
-These are the folders and their contents:
-- [docker](/docker): How-To setup and use Docker and setup the environment to work in *(required to run the simulation)*.
-- [docs](/docs): Documentation like specifications on FLIP, research documents and the development document.
-- [setup](/setup): How-To setup and use different software like ROS2, Colcon, RViz and running Python files *(required to run the simulation)*.
-- [workspace](/workspace): The main folder where everything is kept to be able to run the **Digital Twin** accordingly and also has all the prototypes version. This is where future teams will change code, the environment or add new scripts.
+Since the project is quite large and the setup isn't always straighforward, below is an overview of all of the different steps ordered in order of execution. Before running any code inside this repository make sure you've completed all of the below steps first.
+
+## Step-by-step
+
+- **1.** [Docker setup](/docker): Setup the Docker container, which the environment relies on to work.
+  - **1.1.** [Container creation](/docker/setup/container-creation/README.md)
+    - [Windows](/docker/setup/container-creation/Windows/)
+    - [Ubuntu](/docker/setup/container-creation/Ubuntu/)
+  - **1.2.** [Starting the container](/docker/setup/container-start/README.md)
+  - **1.3.** [Setting up Python venv](/docker/setup/container-venv/README.md)
+  - **1.4. (optional)** [Using CUDA](/docker/setup/using-cuda/README.md)
+- **2.** [Simulation setup](/setup): Install different software like ROS2, Colcon, RViz.
+  - **2.1.** [Install required software](/setup/ROS2/README.md)
+  - **2.2.** [Build Colcon packages](/setup/colcon/README.md)
+- **3.** [Running the simulation](/workspace): Guide on how to run the full simulation.
+  - **3.1.** [Running Python scripts](/setup/running-scripts/README.md)
+  - **3.2.** [Visualization with RViz](/setup/RViz-visualisation/README.md)
+  - **3.3.** [Running the full simulation](/workspace/models/README.md#7-launch-the-simulation)
+
+
+## Other useful links
+
+- [Documentation](/docs): Files like the specifications of FLIP, research documents, development documents and proptypes. 
+- [Protopytes](/workspace/prototypes/): A collection of prototypes that were used in the development of the **Digital Twin** (very useful for future students that might build on this projects code)
