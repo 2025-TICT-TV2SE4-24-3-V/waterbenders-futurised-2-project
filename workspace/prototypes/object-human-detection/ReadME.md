@@ -44,7 +44,7 @@ This creates a single detection node capable of gathering information about both
 
 More detailed explanations of the individual detection systems can be found here:
 
-* **YOLO Human Detection** -> [YOLO README](../YOLO-human-detection/README.md)
+* **YOLO Human Detection** -> [YOLO README](../YOLO-human-detection/ReadME.md)
 * **OpenCV Object Detection** -> [Object Detection README](../object-detection-opencv/README.md)
 
 The final result is a perception pipeline capable of:
