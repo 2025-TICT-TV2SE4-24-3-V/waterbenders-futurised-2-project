@@ -100,6 +100,7 @@ If the pressure exceeds the configured threshold:
 ```
 WARNING: Possible explosion detected!
 ```
+![Listening](ListeningAirPressure.png)
 
 ### Errors
 
