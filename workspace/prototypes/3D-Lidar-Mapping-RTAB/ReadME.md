@@ -58,7 +58,7 @@ This folder was created for prototyping 3D LiDAR mapping using RTAB-Map inside a
 
 - **databaseFiles/:** saved RTAB-Map `.db` map files from completed scans
 - **Screenshots/:** RViz screenshots showing map output and display configuration
-- **teleop/:** custom C++ teleop node and its CMake build files. This was shortly used for steering the robot up until we switched over to diffdrive and eventually the automated driving via pathfinding.
+- **teleop/:** custom C++ teleop node and its CMake build files. This was shortly used for steering the robot up until the switch was made to diffdrive and eventually the automated driving via pathfinding.
 - **HumanMappingTest.mp4:** recording of a mapping run with a human walking the environment
 - **lidarRoomScan.sdf:** Gazebo world SDF used for prototype testing
 - **liveUpdatingRTABmap.mp4:** the first working 3D mapping of RTAB even though it did not retain data and build a map
