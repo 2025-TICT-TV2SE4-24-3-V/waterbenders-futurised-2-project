@@ -1,6 +1,6 @@
 # Camera
 *13/06/2026*<br>
-*Django*
+*Django Manders*
 
 # Table of Contents
 - [Camera](#camera)
