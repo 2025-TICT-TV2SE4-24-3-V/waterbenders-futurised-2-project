@@ -36,4 +36,4 @@ In the prototypes folder is where the first lines of code were designed, written
 This is all documented in each folder seperately, where at the bottom an **advice** is also given for the parts. From this advice future developers can continue to write, test and build different improvements neccesary.
 
 # Using the product
-For using and testing the final product, please go to [models](/models/README.md) to follow the steps.
+For using and testing the final product, please go to [models](./models/README.md) to follow the steps.

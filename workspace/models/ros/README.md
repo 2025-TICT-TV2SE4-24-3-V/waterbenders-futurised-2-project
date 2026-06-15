@@ -4,8 +4,9 @@ This folder (i.e. `/ros`) contains all of the confguration files and packages us
 
 ## Table of contents
 
-- [Table of Contents](#table-of-contents)
-- [Folder Structure](#folder-structure)
+- [ROS Folder](#ros-folder)
+  - [Table of contents](#table-of-contents)
+  - [Folder structure](#folder-structure)
     - [Packages](#packages)
     - [Configuration files](#configuration-files)
 
@@ -17,7 +18,7 @@ This folder is organized into two parts:
 
 ### Packages
 
-Packages contains different parts of the simulation wrapped inside Colcon packages, which for the most part is just Python code made executable by a launch.py file. The main code for these packages sit in the main.py file located at: `package_name/package_name/main.py`. A total of 4 packages are used by our simulation, these are:
+Packages contains different parts of the simulation wrapped inside Colcon packages, which for the most part is just Python code made executable by a `launch.py` file. The main code for these packages sit in the `main.py` file located at: `package_name/package_name/main.py`. A total of 4 packages are used by our simulation, these are:
 
 - [**fire_detection**](./packages/fire_detection/): Thermal camera, which detects changes in heat and can therefore detect fire or (danger to the robot in general) based on this data.
 - [**logical_audio_sensor**](./packages/logical_audio_sensor/): Audio detection by a Logical Audio Sensor implemented on FLIP itself.
@@ -28,7 +29,7 @@ Each of these follow the same code structure in `main.py` that is generally rega
 
 ### Configuration files
 
-The configuration files inside the `ros/` folder are used for a multitude of things. All of these files are written in YAML (YML File format) and are read by certain ROS2 packages that we've for the most part used as building blocks inside our simulation. 
+The configuration files inside the `ros/` folder are used for a multitude of things. All of these files are written in **YAML** (YML File format) and are read by certain ROS2 packages that are used for the most part as building blocks inside the simulation. 
 
 Besides the pre-built ROS2 packages, the bridges that connect Gazebo output with ROS2, are also specified inside `ros/`. Below a complete overview of the different files inside this folder:
 
