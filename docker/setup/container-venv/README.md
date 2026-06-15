@@ -1,6 +1,5 @@
 # Installing venv
-Both [One-liners](#1-one-liners) and [Using vpip](#2-using-vpip) do the same thing. The only difference is that [Using vpip](#2-using-vpip) has a bit more details what you are doing with what command. You can choose to use `vpip` or regular `python` for running files.
-So choose which set of instructions you wish to run. If there are any errors or problems with the venv or installed packages, please see [this file](TODO) for steps for common errors.
+Both [One-liners](#1-one-liners) and [Using vpip](#2-using-vpip) do the same thing. The only difference is that [Using vpip](#2-using-vpip) has a bit more details what you are doing with what command. You can choose to use `vpip` or regular `python` for running files. So choose which set of instructions you wish to run.
 
 # Contents
 - [Installing venv](#installing-venv)
