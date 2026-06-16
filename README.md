@@ -89,27 +89,15 @@ waterbenders-futurised-2-project/
     │   ├── ros/                                   # ROS2 packages, nodes, bridges, etc.
     │   └── scripts/                               # Python (launch)scripts used in the simulation
     │
-    └── prototypes/                                # All prototypes built during the project
+    └── prototypes/                                # All prototypes built during the project. Each folder has its own README with details, advice, implementation notes, and contributors.
         │                                          # Each folder has its own README with details,
         │                                          # advice, implementation notes, and contributors.
         │
-        ├── 2d-cartographer-demo/                  # 2D mapping using Cartographer — Django Manders
-        ├── 3d-cartographer/                       # 3D mapping using Cartographer — Radeiaan Nandoe
-        ├── 3D-Lidar-Mapping-RTAB/                 # 3D mapping using RTAB-Map — Radeiaan Nandoe
-        ├── 3D-Octomap/                            # 3D occupancy mapping using OctoMap — Radeiaan Nandoe
-        ├── airpressure-sensor/                    # Air pressure sensor integration — Freya van den Berg
-        ├── altimeter/                             # Altimeter sensor integration — Sarah Gbagi
-        ├── camera/                                # Ultra-wide camera implementation — Django Manders
-        ├── dijkstra-algorithm/                    # Dijkstra pathfinding algorithm — Sarah Gbagi
-        ├── environment-with-obstacles/            # Test environment with obstacles for simulation — Radeiaan Nandoe, Django Manders
-        ├── frontier-clusters-demo/                # Frontier-based exploration clustering — Django Manders
-        ├── LiDAR-sensor-environment/              # LiDAR sensor environment setup — Radeiaan Nandoe
-        ├── logical-audio-sensor/                  # Logical audio sensor integration — Sarah Gbagi
-        ├── object-detection-opencv/               # Object detection using OpenCV — Maud Waasdorp, Radeiaan Nandoe
-        ├── object-human-detection/                # Combined object & human detection — Maud Waasdorp, Radeiaan Nandoe
-        ├── path-finding-demo/                     # Autonomous pathfinding demo — Django Manders
-        ├── thermal-camera/                        # Thermal camera implementation — Maud Waasdorp
-        └── YOLO-human-detection/                  # Human detection using YOLO — Maud Waasdorp, Radeiaan Nandoe
+        ├── 2d-cartographer-demo/                  # 2D mapping prototype using Cartographer, used as a basis for implementing 3d-cartographer mapping
+        ├── 3d-cartographer/                       # 3D mapping using Cartographer, explored as an alternative approach
+        .
+        .
+        .
 ```
 ---
 
@@ -126,23 +114,23 @@ This is where all of the first prototypes were made and tested before implementa
 Below is a table for a clear overview of who helped with which prototype, if that prototype was implemented and short notes on what that prototype does.
 | Prototype | Contributor | Implemented | Notes|
 | --------- | ----------- | ----------- | ---- |
-| 2d-cartographer-demo | Django Manders | Nee | 2D mapping using Cartographer used as a basis for implementing 3d-cartographer mapping|
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| 2d-cartographer-demo | Django Manders | No | 2D mapping using Cartographer, used as a basis for implementing 3d-cartographer mapping |
+| 3d-cartographer | Radeiaan Nandoe | No | 3D mapping using Cartographer, explored as an alternative mapping approach|
+| 3D-Lidar-Mapping-RTAB | Radeiaan Nandoe | **Yes** | 3D mapping using RTAB-Map — the main LiDAR 3D-mapping implementation |
+| 3D-Octomap | Radeiaan Nandoe | No | 3D occupancy mapping using OctoMap, explored as an alternative mapping approach |
+| airpressure-sensor | Freya van den Berg | **Yes** | Air pressure sensor integration for detecting different air pressures in the environment |
+| altimeter | Sarah Gbagi | No | Altimeter sensor integration for altitude measurement |
+| camera | Django Manders | **Yes** | Ultra-wide camera implementation for a live-feed of the environment |
+| dijkstra-algorithm | Sarah Gbagi | **Yes** | Dijkstra pathfinding algorithm as a back-up algorithm for autonomous navigation |
+| environment-with-obstacles | Radeiaan Nandoe, Django Manders | **Yes** | Test simulation environment with obstacles, used for testing other prototypes |
+| frontier-clusters-demo | Django Manders | **Yes** | Frontier-based exploration clustering for autonomous pathfinding and environment exploration |
+| LiDAR-sensor-environment | Radeiaan Nandoe | **Yes** | LiDAR sensor environment setup used for testing and developing LiDAR integration |
+| logical-audio-sensor | Sarah Gbagi | **Yes** | Logical audio sensor integration for receiving and sending audio data |
+| object-detection-opencv | Maud Waasdorp, Radeiaan Nandoe | **Yes** | Object detection using OpenCV |
+| object-human-detection | Maud Waasdorp, Radeiaan Nandoe | **Yes** | Combined object & human detection implementation |
+| path-finding-demo | Django Manders | **Yes** | Autonomous pathfinding demo, used as a basis for the final pathfinding implementation |
+| thermal-camera | Maud Waasdorp | **Yes** | Thermal camera implementation for visualizing temperatures inside an environment |
+| YOLO-human-detection | Maud Waasdorp, Radeiaan Nandoe | **Yes** | Human detection using the YOLO model |
 
 # Introduction
 Welcome to the Hogeschool Utrecht project for the TI-students, Team Waterbenders. During this project the team developed, researched, tested, implemented and created a Digital Twin for the client, Futurised. The Digital Twin is based on their real-life robot FLIP, FLIP is a robot that can navigate and scan an environment and even extinguish fires. 
