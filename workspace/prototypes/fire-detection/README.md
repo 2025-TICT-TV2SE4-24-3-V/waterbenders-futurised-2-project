@@ -349,9 +349,9 @@ The final implementation provides clear visual feedback, publishes useful ROS2 t
 # Setup
 In order to be able to run these files, there are a few steps that need to be taken in order for it to work correctly with Gazebo, ROS2 and Rviz.
 
-1. Create a Docker container -> [Docker container setup]()
-2. Install ROS2 -> [Installing ROS2](../../models/README.md)
-3. Create a venv inside the Docker container and install packages/libraries -> [venv setup](../../models/README.md)
+1. Create a Docker container -> [Docker container setup](../../../docker/setup/container-creation/README.md)
+2. Install ROS2 -> [Installing ROS2](../../../setup/ROS2/README.md)
+3. Create a venv inside the Docker container and install packages/libraries -> [venv setup](../../../docker/setup/container-venv/README.md)
 
 If this setup is complete and functioning, the next step is to actually run this script. Important is that it is necessary to have **4 powershell terminals** open, because in every terminal something else must be ran.
 

@@ -22,6 +22,7 @@ Futurised
 - [Futurised](#futurised)
 - [Instructions](#instructions)
   - [Step-by-step](#step-by-step)
+- [Conclusion and Recommendations](#conclusion-and-recommendations)
 
 # Project authors
 - **Django Manders:** Software Developer <br>
@@ -128,6 +129,7 @@ Below is a table for a clear overview of who helped with which prototype, if tha
 | [object-human-detection](./workspace/prototypes/object-human-detection/) | Maud Waasdorp, Radeiaan Nandoe | **Yes** | Combined object & human detection implementation |
 | [path-finding-demo](./workspace/prototypes/path-finding-demo/) | Django Manders | **Yes** | Autonomous pathfinding demo, used as a basis for the final pathfinding implementation |
 | [thermal-camera](./workspace/prototypes/thermal-camera/) | Maud Waasdorp | **Yes** | Thermal camera implementation for visualizing temperatures inside an environment |
+| [fire-detection](./workspace/prototypes/fire-detection/) | Maud Waasdorp | Yes | Fire detection implementation using RGB and thermal camera to detect fires. |
 | [YOLO-human-detection](./workspace/prototypes/YOLO-human-detection/) | Maud Waasdorp, Radeiaan Nandoe | **Yes** | Human detection using the YOLO model |
 
 # Introduction
