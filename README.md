@@ -104,7 +104,7 @@ waterbenders-futurised-2-project/
 The most important folders besides the [setup folder](/setup/) and the [docker folder](/docker/) are where our main implementations and prototypes are located. These are the our:
 
 ## [models folder](/workspace/models/) 
-This is the folder containing the final, integrated simulation environment for the FLIP robot. It combines the Gazebo world (environment layout, obstacles, the FLIP robot model), custom ROS2 packages (sensor communication and robot behavior), Python scripts (AI-based processing such as object, human, and fire detection), Gazebo plugins (bridging simulated sensors to ROS2 topics), and saved mapping databases. The full simulation is launched via simulation.launch.py.
+This is the folder containing the final, integrated simulation environment for the FLIP robot. It combines the Gazebo world (environment layout, obstacles, the FLIP robot model), custom ROS2 packages (sensor communication and robot behavior), Python scripts (AI-based processing such as object, human, and fire detection), Gazebo plugins (bridging simulated sensors to ROS2 topics), and saved mapping databases. The full simulation is launched via [simulation.launch.py](./workspace/models/simulation.launch.py).
 
 ## [prototypes folder](/workspace/prototypes/)
 This is where individual features were built and tested in isolation before integration into the main simulation. Each subfolder is a standalone prototype with its own README documenting the reasoning behind it, implementation details, usage instructions, advice for future developers, and contributor information. Prototypes that proved successful were later integrated into the models folder.
