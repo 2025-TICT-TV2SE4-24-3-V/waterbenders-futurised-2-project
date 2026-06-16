@@ -90,8 +90,6 @@ waterbenders-futurised-2-project/
     │   └── scripts/                               # Python (launch)scripts used in the simulation
     │
     └── prototypes/                                # All prototypes built during the project. Each folder has its own README with details, advice, implementation notes, and contributors.
-        │                                          # Each folder has its own README with details,
-        │                                          # advice, implementation notes, and contributors.
         │
         ├── 2d-cartographer-demo/                  # 2D mapping prototype using Cartographer, used as a basis for implementing 3d-cartographer mapping
         ├── 3d-cartographer/                       # 3D mapping using Cartographer, explored as an alternative approach
