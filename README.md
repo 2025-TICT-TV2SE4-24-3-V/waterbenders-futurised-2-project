@@ -66,7 +66,7 @@ waterbenders-futurised-2-project/
 ├── docs/                                          # Project documentation
 │   ├── flip/                                      # Specifications and technical details of the FLIP robot
 │   ├── images/                                    # Some images used throughout the documentation
-│   ├── onderzoek/                                 # Research documents made and referred to in some readme's
+│   ├── onderzoek/                                 # Research documents made and referred to in some README's
 │   │   ├── 3D-mapping/                            # Research on 3D mapping techniques
 │   │   ├── object-herkenning/                     # Research on object recognition
 │   │   └── ROS2/                                  # Research on ROS2
@@ -87,7 +87,7 @@ waterbenders-futurised-2-project/
     ├── models/                                    # Gazebo/ROS simulation models and (launch)scripts
     │   ├── gazebo/                                # Gazebo world and model files
     │   ├── ros/                                   # ROS2 packages, nodes, bridges, etc.
-    │   └── scripts/                               # Python (launch)scripts used in the simulation
+    │   └── scripts/                               # Python (launch) scripts used in the simulation
     │
     └── prototypes/                                # All prototypes built during the project. Each folder has its own README with details, advice, implementation notes, and contributors.
         │
@@ -101,7 +101,7 @@ waterbenders-futurised-2-project/
 
 
 # Important Folders
-The most important folders besides the [setup folder](/setup/) and the [docker folder](/docker/) are where our main implementations and prototypes are located. These are the our:
+The most important folders besides the [setup folder](/setup/) and the [docker folder](/docker/) are the folders where our main implementation and prototypes reside. These are:
 
 ## [models folder](/workspace/models/) 
 This is the folder containing the final, integrated simulation environment for the FLIP robot. It combines the Gazebo world (environment layout, obstacles, the FLIP robot model), custom ROS2 packages (sensor communication and robot behavior), Python scripts (AI-based processing such as object, human, and fire detection), Gazebo plugins (bridging simulated sensors to ROS2 topics), and saved mapping databases. The full simulation is launched via [simulation.launch.py](./workspace/models/simulation.launch.py).
@@ -121,7 +121,7 @@ Below is a table for a clear overview of who helped with which prototype, if tha
 | [camera](./workspace/prototypes/camera/) | Django Manders | **Yes** | Ultra-wide camera implementation for a live-feed of the environment |
 | [dijkstra-algorithm](./workspace/prototypes/dijkstra-algorithm/) | Sarah Gbagi | **Yes** | Dijkstra pathfinding algorithm as a back-up algorithm for autonomous navigation |
 | [environment-with-obstacles](./workspace/prototypes/environment-with-obstacles/) | Radeiaan Nandoe, Django Manders | **Yes** | Test simulation environment with obstacles, used for testing other prototypes |
-| [frontier-clusters-demo](./workspace/prototypes/frontier-clusters-demo/) | Django Manders | **Yes** | Frontier-based exploration clustering for autonomous pathfinding and environment exploration |
+| [frontier-clusters-demo](./workspace/prototypes/frontier-clusters-demo/) | Django Manders | No | Frontier-based exploration clustering for autonomous pathfinding and environment exploration |
 | [LiDAR-sensor-environment](./workspace/prototypes/LiDAR-sensor-environment/) | Radeiaan Nandoe | **Yes** | LiDAR sensor environment setup used for testing and developing LiDAR integration |
 | [logical-audio-sensor](./workspace/prototypes/logical-audio-sensor/) | Sarah Gbagi | **Yes** | Logical audio sensor integration for receiving and sending audio data |
 | [object-detection-opencv](./workspace/prototypes/object-detection-opencv/) | Maud Waasdorp, Radeiaan Nandoe | **Yes** | Object detection using OpenCV |
@@ -184,22 +184,24 @@ Since the project is quite large and the setup isn't always straighforward, belo
 
 ## Step-by-step
 
-- **1.** [Docker setup](/docker): Setup the Docker container, which the environment relies on to work.
-  - **1.1.** [Container creation](/docker/setup/container-creation/README.md)
-    - [Windows](/docker/setup/container-creation/Windows/)
-    - [Ubuntu](/docker/setup/container-creation/Ubuntu/)
+- **1.** [Docker setup](/docker/README.md): Setup the Docker container, which the environment relies on to work.
+  - **1.1.** Container creation
+    - Windows:
+      - [Using CMD](/docker/setup/container-creation/Windows/usingCMD.md)
+      - [Using PowerShell](/docker/setup/container-creation/Windows/usingPowershell.md)
+    - Ubuntu:
+      - [Using dedicated graphics](/docker/setup/container-creation/Ubuntu/forDedicatedGraphics.md)
+      - [Using integrated graphics](/docker/setup/container-creation/Ubuntu/forIntegratedGraphics.md)
   - **1.2.** [Starting the container](/docker/setup/container-start/README.md)
   - **1.3.** [Setting up Python venv](/docker/setup/container-venv/README.md)
   - **1.4. (optional)** [Using CUDA](/docker/setup/using-cuda/README.md)
-- **2.** [Simulation setup](/setup): Install different software like ROS2, Colcon, RViz.
+- **2.** [Simulation setup](/setup/README.md): Install different software like ROS2, Colcon, RViz.
   - **2.1.** [Install required software](/setup/ROS2/README.md)
   - **2.2.** [Build Colcon packages](/setup/colcon/README.md)
-- **3.** [Running the simulation](/workspace): Guide on how to run the full simulation.
+- **3.** [Running the simulation](/workspace/README.md): Guide on how to run the full simulation.
   - **3.1.** [Visualization with RViz](/setup/RViz-visualisation/README.md)
   - **3.2.** [Running Python scripts](/setup/running-scripts/README.md)
   - **3.3.** [Running the full simulation](/workspace/models/README.md#to-run-the-complete-simulation)
-
-
 
 # Conclusion and Recommendations
 
