@@ -28,7 +28,7 @@ def generate_launch_description():
             # f'GZ_IP={os.environ.get("GZ_IP", "")}',
 
             f'XAUTHORITY={os.environ.get("XAUTHORITY")}',
-            'gz', 'sim', 'gazebo/environment.sdf'
+            'gz', 'sim', '/workspace/models/gazebo/environment.sdf'
         ],
         output='screen'
     )
