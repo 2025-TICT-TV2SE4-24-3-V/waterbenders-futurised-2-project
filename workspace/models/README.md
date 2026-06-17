@@ -24,6 +24,7 @@
     - [4. Build Colcon](#4-build-colcon)
     - [6. Source the workspace](#6-source-the-workspace)
     - [7. Launch the simulation](#7-launch-the-simulation)
+    - [8. Run Object \& Human detection seperately](#8-run-object--human-detection-seperately)
 - [Simulation Architecture](#simulation-architecture)
 
 
@@ -296,6 +297,16 @@ source install/setup.bash
 ### 7. Launch the simulation
 ```bash
 ros2 launch simulation.launch.py
+```
+
+### 8. Run Object & Human detection seperately
+Open another terminal: `Crtl + Shift + 5`:
+```bash
+./rungazebo.ps1
+source /workspace/venv/bin/activate
+source /opt/ros/jazzy/setup.bash
+cd models/scripts/
+python detect-objects.py
 ```
 
 
