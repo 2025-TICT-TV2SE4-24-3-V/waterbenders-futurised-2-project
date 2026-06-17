@@ -25,6 +25,8 @@
     - [6. Source the workspace](#6-source-the-workspace)
     - [7. Launch the simulation](#7-launch-the-simulation)
     - [8. Run Object \& Human detection seperately](#8-run-object--human-detection-seperately)
+    - [9. Run Audio logical Sensor seperately](#9-run-audio-logical-sensor-seperately)
+    - [10. Run LiDAR RTAB 3D-mapping seperately](#10-run-lidar-rtab-3d-mapping-seperately)
 - [Simulation Architecture](#simulation-architecture)
 
 
@@ -309,6 +311,20 @@ cd models/scripts/
 python detect-objects.py
 ```
 
+### 9. Run Audio logical Sensor seperately
+Open another terminal: `Crtl + Shift + 5`:
+```bash
+./rungazebo.ps1
+source /workspace/venv/bin/activate
+source /opt/ros/jazzy/setup.bash
+cd models/scripts/logical_audio_sensor/
+python audio.py
+```
+
+### 10. Run LiDAR RTAB 3D-mapping seperately
+In order to run the LiDAR mapping and the pathfinding correct, some hardware might have some issues running all these things at the same time. PLease follow the [lidar](..//prototypes/3D-Lidar-Mapping-RTAB/ReadME.md) instructions to run the LiDAR seperately in seperate terminals and computers.
+
+---
 
 **After launching, Gazebo will open with the FLIP robot inside the environment and all configured sensors will start publishing data.**
 
