@@ -212,7 +212,7 @@ def generate_launch_description():
         output='screen',
     )
     
-    rviz_config = os.path.join(WORKSPACE_DIR, 'rviz.rviz')
+    rviz_config = os.path.join(WORKSPACE_DIR, 'rtbmap_mapping.rviz')
 
     rviz_node = Node(
         package='rviz2',
