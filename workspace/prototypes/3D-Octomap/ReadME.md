@@ -190,7 +190,42 @@ In RViz:
 
 
 # Advice
-OctoMap is a good tool for static 3D occupancy mapping when the robot's pose is already accurately known, but it is not a SLAM solution. If your robot has any odometry drift (which is common in simulation without ground-truth pose data), the resulting map will degrade quickly as the robot moves. Before using OctoMap, ensure you have reliable odometry or pair it with a localization system. For a moving robot that needs to build a map from scratch, use a full SLAM pipeline such as RTAB-Map or Cartographer that can detect and correct drift through loop closure. Also be aware that documentation for ROS2 Jazzy is sparse — most available examples and guides target older ROS2 distributions, so expect to spend extra time adapting configurations and troubleshooting compatibility issues.
+
+OctoMap is a useful tool for 3D **occupancy mapping**, but it should not be treated as a full SLAM solution. It is best used when the robot's pose is already known accurately, or when another system provides reliable odometry and localization.
+
+OctoMap works well for:
+
+* Representing occupied, free, and unknown space in 3D
+* Creating voxel-based maps from point cloud data
+* Visualizing 3D obstacles in RViz
+* Lightweight occupancy mapping
+* Static or semi-static environments
+* Navigation and obstacle-avoidance systems that already have a good pose estimate
+
+However, OctoMap does not correct robot drift by itself. It inserts incoming point cloud data into the map based on the pose it receives. If the odometry is wrong, the map will also become wrong. This was the main problem in this prototype: as the robot moved, odometry drift caused the point cloud data to be placed at incorrect positions, producing a fuzzy and unreliable map.
+
+For moving robots, odometry quality is very important. Poor odometry can cause:
+
+* Duplicated walls
+* Blurry or scattered obstacles
+* Misaligned point clouds
+* Incorrect occupied cells
+* A map that becomes worse the longer the robot drives
+
+Because OctoMap has **no loop closure or pose graph optimization**, it cannot detect that the robot has returned to a previously visited place and correct accumulated drift. This makes it less suitable as the main mapping solution when a robot needs to build a map from scratch.
+
+Future improvements could include:
+
+* Combining OctoMap with a SLAM system such as RTAB-Map
+* Using ICP odometry before inserting point clouds into OctoMap
+* Adding better wheel odometry or encoder feedback
+* Testing an RGB-D camera to compare depth-camera mapping with LiDAR-only mapping
+* Filtering the point cloud before sending it to OctoMap
+* Tuning the OctoMap resolution for better performance or detail
+* Using OctoMap as a final occupancy layer after another system estimates the robot pose
+
+**This implementation was useful as an early 3D mapping prototype, but OctoMap alone was not the best final solution for the FLIP project because it depends too much on accurate external odometry and does not correct drift by itself.**
+
 
 
 

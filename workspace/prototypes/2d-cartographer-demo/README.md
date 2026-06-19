@@ -146,8 +146,37 @@ rviz2
 
 
 # Advice
-It would have been ideal to use Cartographer to do both 2D and 3D-mapping for our project but it was not worth the time and effort to try to get Cartographer working as there is little documentation available. This is not entirely true as there is some documentation on 3D-mapping using Cartographer but the limitations are completeness of said documentation or incompatibility with the Gazebo version used for this project. If you like a challenge and wish to do so anyway then good luck! The final advice given would be to check what version has the most documentation online for your specific project before using that version for the project. Or use some other simulation software than Gazebo.
 
+Cartographer is a powerful SLAM framework for creating 2D occupancy grid maps from LiDAR data. It is especially useful when working with:
+
+* Simulated robot environments
+* 2D LiDAR-based mapping
+* ROS2 and Gazebo integration
+* Real-time map generation
+* Future real-world robot implementations
+
+However, Cartographer can also be difficult to configure correctly. A working setup depends heavily on correct topics, transforms, frame names, timing, and Lua configuration settings. Small mistakes in one of these parts can prevent the map from appearing or cause incorrect mapping behaviour.
+
+For this project, TF configuration is especially important. Cartographer needs to know the exact position of the LiDAR sensor relative to the robot. If the `chassis`, `map`, `odom`, or LiDAR frames are incorrect, the generated map can become unstable or inaccurate.
+
+Key limitations to be aware of:
+
+* Documentation for ROS2 Cartographer is limited and sometimes outdated
+* Some online guides are made for older ROS, Gazebo, or Cartographer versions
+* Incorrect TF frames can cause mapping problems
+* Poor LiDAR placement can reduce map quality
+* Without odometry or IMU data, Cartographer relies more heavily on scan matching
+
+Future improvements could include:
+
+* Adding IMU support for more stable movement tracking
+* Tuning the Lua configuration for better scan matching
+* Testing different LiDAR ranges and resolutions
+* Saving and reloading generated maps
+* Comparing Cartographer results with RTAB-Map and SLAM Toolbox
+* Testing the setup on the real FLIP robot hardware
+
+**This implementation already creates a strong base for 2D LiDAR mapping inside Gazebo simulations and can be used as a stepping stone toward real-world autonomous robot mapping.**
 
 
 # Sources

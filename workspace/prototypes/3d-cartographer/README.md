@@ -239,7 +239,41 @@ rviz2
 
 
 # Advice
-It would have been ideal to use Cartographer to do both 2D and 3D-mapping for our project but it was not worth the time and effort to try to get Cartographer working as there is little documentation available. This is not entirely true as there is some documentation on 3D-mapping using Cartographer but the limitations are completeness of said documentation or incompatibility with the Gazebo version used for this project. If you like a challenge and wish to do so anyway then good luck! The final advice given would be to check what version has the most documentation online for your specific project before using that version for the project. Or use some other simulation software than Gazebo.
+
+Cartographer is a strong SLAM framework, but using it for 3D mapping in this project proved to be much more difficult than using it for 2D mapping because of the realistic hardware constraints of FLIP. While Cartographer can support 3D SLAM, it works best when the required sensor setup, frame configuration, and data streams are all correctly available.
+
+For 3D mapping, Cartographer depends more heavily on:
+
+* 3D LiDAR or point cloud data
+* Correct TF frame configuration
+* Accurate IMU data
+* Odometry data
+* Proper Lua configuration
+* Compatible ROS2, Gazebo, and bridge versions
+
+In this project, the main challenge was not only getting the files to launch, but also getting all required data to work together correctly without some key components such as the IMU sensor. The 3D setup required changes to the LiDAR output, bridge file, and Cartographer Lua configuration. Because of this, debugging became more complex than with the 2D setup.
+
+A major limitation is the available documentation for using Cartographer 3D together with ROS2 and Gazebo. Some documentation exists, but many examples are made for different ROS versions, different Gazebo versions, or real LiDAR hardware instead of a simulated robot.
+
+Key limitations to be aware of:
+
+* Cartographer 3D is harder to configure than Cartographer 2D
+* Documentation for ROS2 and Gazebo-based 3D Cartographer setups is limited
+* IMU and odometry data are important for stable 3D mapping
+* Incorrect TF frames can prevent Cartographer from working correctly
+* PointCloud2 bridging must be configured carefully
+* RViz visualization is different from 2D mapping because there is no normal `/map` occupancy grid output
+
+Future improvements could include:
+
+* Verifying the full TF tree before running Cartographer
+* Implementing an IMU-sensor and making use of its data
+* Increasing and tuning the 3D LiDAR scan configuration
+* Comparing Cartographer 3D directly with RTAB-Map
+* Testing the setup with real sensor data from the FLIP robot
+
+**This implementation was useful as a research prototype, but for this project RTAB-Map is likely the better option for practical 3D mapping because it was already partially functional and better suited to continue improving.**
+
 
 
 

@@ -303,7 +303,46 @@ ros2 service call /rtabmap/rtabmap/publish_map rtabmap_msgs/srv/PublishMap "{glo
 
 
 # Advice
-Among all the options evaluated, RTAB-Map is the recommended choice for 3D LiDAR mapping in a ROS2 + Gazebo setup. It is the only algorithm in this list that combines solid ROS2 Jazzy support, LiDAR-only operation via ICP odometry, and sufficient documentation to get running without dead ends. Octomap is useful as a representation layer on top of RTAB-Map if a voxel occupancy map is needed. The IMU-dependent options (LIO-SAM, Cartographer 3D) should only be considered if an IMU is part of the real hardware setup. Cartographer's 3D mode in particular suffers from sparse and incomplete documentation — see [3d-cartographer](../3d-cartographer/) for a full account of the dead ends encountered there. RTAB-Map was ultimately integrated into the main workspace as the final mapping solution for FLIP, which reflects how well it performed relative to the alternatives.
+
+RTAB-Map is the recommended solution for 3D LiDAR mapping in this ROS2 + Gazebo project. Compared to the other tested options, it provided the best balance between practical usability, ROS2 support, LiDAR-only mapping, and documentation.
+
+It works especially well for this project because it can use ICP odometry to estimate robot movement directly from consecutive 3D LiDAR scans. This means the robot does not need an IMU or RGB-D camera, which keeps the simulation closer to the real FLIP hardware setup.
+
+RTAB-Map is useful in:
+
+* 3D LiDAR-based mapping
+* ROS2 and Gazebo simulations
+* LiDAR-only robot setups
+* Saving and reloading mapped environments
+* RViz visualization of point clouds, odometry, TF frames, and generated maps
+* Future autonomous navigation and analysis workflows
+
+However, RTAB-Map still depends heavily on correct configuration. The quality of the final map is strongly influenced by the LiDAR placement, TF tree, ICP odometry settings, point cloud quality, and how the robot is driven through the environment. Poor movement or incorrect frames can cause drift, duplicated walls, broken alignment, or incomplete maps.
+
+For this project, ICP odometry was one of the most important parts of the setup. It replaces unreliable wheel odometry by comparing LiDAR scans over time. This made it possible to build and save a 3D map while still using only the sensors that are realistic for the FLIP robot.
+
+Key limitations to be aware of:
+
+* ICP odometry can still drift if the robot moves too quickly or turns too sharply
+* Low-detail environments can make scan matching less reliable
+* Incorrect TF frames can break the mapping pipeline
+* Poor LiDAR placement can cause the robot itself to be scanned
+* Point cloud quality has a direct impact on map quality
+* Large maps can become computationally heavier over time
+* RTAB-Map requires careful database handling when saving and viewing maps
+
+Future improvements could include:
+
+* Testing an RGB-D camera to reduce drift and compare RGB-D odometry with LiDAR-based ICP odometry. This could reduce the load caused by full point cloud scan matching if RGB-D odometry replaces ICP, but it may increase total computation if both RGB-D processing and LiDAR ICP are used at the same time.
+* Tuning ICP odometry parameters to reduce drift
+* Improving LiDAR placement so the robot body is not scanned
+* Driving the robot more slowly and systematically during mapping
+* Filtering the point cloud before it is used by RTAB-Map
+* Testing different LiDAR resolutions and scan ranges
+* Adding loop closure testing in larger environments
+
+**This implementation already creates a strong and practical base for 3D LiDAR mapping inside Gazebo and was the best mapping solution found for the FLIP robot project.**
+
 
 
 
