@@ -27,7 +27,7 @@
     - [8. Run Object \& Human detection seperately](#8-run-object--human-detection-seperately)
     - [9. Run Audio logical Sensor seperately](#9-run-audio-logical-sensor-seperately)
     - [10. One-liners](#10-one-liners)
-    - [10. Run LiDAR RTAB 3D-mapping seperately](#10-run-lidar-rtab-3d-mapping-seperately)
+    - [11. Testing 3DMapping in main setup](#11-testing-3DMapping-in-main-setup)
 - [Simulation Architecture](#simulation-architecture)
 
 
@@ -331,10 +331,44 @@ source install/setup.bash
 ros2 launch simulation.launch.py
 ```
 
-### 10. Run LiDAR RTAB 3D-mapping seperately
-In order to run the LiDAR mapping and the pathfinding correct, some hardware might have some issues running all these things at the same time. PLease follow the [lidar](..//prototypes/3D-Lidar-Mapping-RTAB/ReadME.md) instructions to run the LiDAR seperately in seperate terminals and computers.
+### 11. Lidar 3DMapping
+---
+#### 11.1 Using main `.sdf` file and `rtabmap_gazebo.launch.py` script in `/workspace/models/scripts/rtabmap_gazebo.launch.py`
+Because Lidar 3D-mapping and doesn't play along well with pathfinding and the other implementations this was run separately using the following commands:
+
+Starting workspace/main gazebo environment
+```bash
+cd /workspace/models/gazebo
+gz sim environment.sdf
+```
+
+
+Running the RTAB-map launch file
+```bash
+cd /workspace/models/scripts
+source /opt/ros/jazzy/setup.bash
+ros2 launch rtabmap_gazebo.launch.py db_name:=nameYouWishToGiveTheDbFile.db
+```
 
 ---
+#### 11.2 Using the made prototype
+You may also choose to run the prototype by following the steps in its [ReadME](../prototypes/3D-Lidar-Mapping-RTAB/ReadME.md)
+
+---
+#### 11.2 Using main `.sdf` file and `simulation.launch.py` script in `/workspace/models/simulation.launch.py`
+
+Or you may choose to run the workspace/main gazebo environment in combination with the main `simulation.launch.py file` but you will need to comment some lines back in in `simulation.launch.py file`.
+
+You will need to comment the following back in
+```bash
+# db_name_arg,
+# static_laser_tf_3d,
+# rtabmap_launch,
+```
+
+and you will need to replace `rviz.rviz` with `rtabmap_mapping.rviz`.
+
+**Advice** follow **Step 11.1** for easily running and testing the 3D-map
 
 **After launching, Gazebo will open with the FLIP robot inside the environment and all configured sensors will start publishing data.**
 
