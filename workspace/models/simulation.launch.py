@@ -191,28 +191,14 @@ def generate_launch_description():
         output='screen'
     )
     
-    object_detection = Node(
-        package='object_detection',
-        executable='main',
-        name='object_detection_node',
-        output='screen',
-    )
-    
     fire_detection = Node(
         package='fire_detection',
         executable='main',
         name='fire_detection_node',
         output='screen',
     )
-
-    explosion_detection = Node(
-        package='explosion_detection',
-        executable='main',
-        name='explosion_detection_node',
-        output='screen',
-    )
     
-    rviz_config = os.path.join(WORKSPACE_DIR, 'rtbmap_mapping.rviz')
+    rviz_config = os.path.join(WORKSPACE_DIR, 'rviz.rviz')
 
     rviz_node = Node(
         package='rviz2',
@@ -233,18 +219,16 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        db_name_arg,
+        # db_name_arg,
         gazebo,
         bridge,
         static_laser_tf_2d,
-        static_laser_tf_3d,
+        # static_laser_tf_3d,
         slam_launch,
-        rtabmap_launch,
+        # rtabmap_launch,
         costmap_2d,
         path_planning,
         audio_bridge_node,
         rviz_node,
-        object_detection,
-        fire_detection,
-        explosion_detection
+        fire_detection
     ])
