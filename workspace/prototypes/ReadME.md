@@ -15,7 +15,7 @@ Below is a table for a clear overview of who helped with which prototype, if tha
 | [camera](./camera/) | Django Manders | **Yes** | Ultra-wide camera implementation for a live-feed of the environment |
 | [dijkstra-algorithm](./dijkstra-algorithm/) | Sarah Gbagi | **Yes** | Dijkstra pathfinding algorithm as a back-up algorithm for autonomous navigation |
 | [environment-with-obstacles](./environment-with-obstacles/) | Radeiaan Nandoe, Django Manders | **Yes** | Test simulation environment with obstacles, used for testing other prototypes |
-| [frontier-clusters-demo](./frontier-clusters-demo/) | Django Manders | **Yes** | Frontier-based exploration clustering for autonomous pathfinding and environment exploration |
+| [frontier-clusters-demo](./frontier-clusters-demo/) | Django Manders | No | Frontier-based exploration clustering for autonomous pathfinding and environment exploration |
 | [LiDAR-sensor-environment](./LiDAR-sensor-environment/) | Radeiaan Nandoe | **Yes** | LiDAR sensor environment setup used for testing and developing LiDAR integration |
 | [logical-audio-sensor](./logical-audio-sensor/) | Sarah Gbagi | **Yes** | Logical audio sensor integration for receiving and sending audio data |
 | [object-detection-opencv](./object-detection-opencv/) | Maud Waasdorp, Radeiaan Nandoe | **Yes** | Object detection using OpenCV |
